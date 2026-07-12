@@ -95,7 +95,7 @@ per-lead statistics, rather than exploiting a dataset artifact.
 Requires Python 3.10+.
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Salako07/Agentic-ECG-Interpreter
 cd Agentic-ECG-Interpreter
 python -m venv venv
 venv\Scripts\activate        # Windows
