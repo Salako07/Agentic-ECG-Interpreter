@@ -1,0 +1,39 @@
+# Agentic ECG Interpreter — dependencies
+# Python 3.10+ recommended. Install:  pip install -r requirements.txt
+
+# --- data acquisition ---
+wfdb>=4.1.2                 # PhysioNet ECG record loading
+boto3>=1.34.0              # PhysioNet S3 open-data mirror (outage fallback)
+requests>=2.31.0          # metadata/HTTP downloads
+
+# --- signal processing & features ---
+neurokit2>=0.2.10          # ECG delineation, HRV, interval extraction
+numpy>=1.26.0,<2.0.0       # pinned <2.0 for wfdb/neurokit2/xgboost compatibility
+pandas>=2.1.0
+scipy>=1.11.0             # neurokit2 dependency (explicit for clarity)
+
+# --- classifier ---
+xgboost>=2.0.0             # one-vs-rest diagnostic classifier
+scikit-learn>=1.3.0        # metrics, threshold tuning
+pyarrow>=14.0.0           # parquet feature matrix
+
+# --- RAG knowledge base ---
+chromadb>=0.4.22           # vector store for guideline retrieval
+sentence-transformers>=2.3.0  # all-MiniLM-L6-v2 embeddings
+torch>=2.1.0              # sentence-transformers backend (CPU is fine)
+torchvision>=0.16.0        # pulled in by sentence-transformers on some setups
+
+# --- agent orchestration ---
+langgraph>=0.2.0           # hybrid agent state graph
+langchain-core>=0.3.0
+langchain-openai>=0.2.0    # OpenAI LLM integration
+langchain-community>=0.3.0
+openai>=1.30.0
+python-dotenv>=1.0.0       # loads OPENAI_API_KEY from .env
+
+# --- demo layer ---
+fastapi>=0.110.0           # REST API service
+uvicorn>=0.29.0            # ASGI server for FastAPI
+streamlit>=1.32.0          # visual UI
+matplotlib>=3.8.0          # waveform + probability plots
+pydantic>=2.6.0            # API request/response models
