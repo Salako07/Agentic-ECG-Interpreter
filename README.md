@@ -240,6 +240,11 @@ clinical decision-making.
 
 ---
 
+## Demo
+
+![Streamlit UI interpreting an ECG](docs/Page1.png)
+![Streamlit UI interpreting an ECG](docs/Page2.png)
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
